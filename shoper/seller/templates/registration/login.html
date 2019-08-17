@@ -1,0 +1,55 @@
+
+{% extends 'registration/base.html' %}
+
+    {% block content %}
+        {% load static %}
+<div class="page-content" style="background-image: url({% static 'registration/images/wizard-v3.jpg' %})">
+	<div class="wizard-v3-content">
+		<div class="wizard-form">
+			<div class="wizard-header">
+				<h3 class="heading">Sign IN Your User Account</h3>
+			</div>
+			<form class="form-register" action="facebook.com" method="post">
+				<div id="form-total">
+					<!-- SECTION 1 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-lock"></i></span>
+						<span class="step-text">LOGIN</span>
+					</h2>
+					<section>
+						<div class="inner">
+							<h3>LOGIN:</h3>
+
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label class="form-row-inner">
+                                         <label for="username" class="btn">Username</label>
+
+										<input type="text" class="form-control" id="username" name="username" required>
+										<span class="label"></span>
+										<span class="border"></span>
+									</label>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label class="form-row-inner">
+                                     <label for="password_1" class="btn">Password</label>
+
+										<input type="password" name="password_1" id="password_1" class="form-control" required>
+										<span class="label"></span>
+										<span class="border"></span>
+									</label>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				</div>
+			<input type="submit" id="finish" value="finish" style="display: none">
+			</form>
+		</div>
+	</div>
+</div>
+ {% endblock %}

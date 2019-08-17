@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/roboto-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+	<!-- datepicker -->
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/jquery-ui.min.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'registration/css/style.css' %}"/>
+</head>
+<body>
+{% block content %}
+
+
+{% endblock %}
+<script src="{% static 'registration/js/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static 'registration/js/jquery.steps.js' %}"></script>
+	<script src="{% static 'registration/js/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'registration/js/main.js' %}"></script>
+<script>
+    $('.input').cache.cleanData()
+</script>
+</body>
+</html>

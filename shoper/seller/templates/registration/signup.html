@@ -1,0 +1,223 @@
+
+{% extends 'registration/base.html' %}
+
+    {% block content %}
+        {% load static %}
+<div class="page-content" style="background-image: url({% static 'registration/images/wizard-v3.jpg' %})">
+
+		<div class="wizard-v3-content">
+			<div class="wizard-form">
+				<div class="wizard-header">
+					<h3 class="heading">Sign Up Your User Account</h3>
+					<p>Fill all form field to go next step</p>
+				</div>
+		        <form class="form-register" action="#" method="post">
+		        	<div id="form-total">
+		        		<!-- SECTION 1 -->
+			            <h2>
+			            	<span class="step-icon"><i class="zmdi zmdi-lock"></i></span>
+			            	<span class="step-text">About</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<h3>Account Information:</h3>
+			                	<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<input type="text" name="email" id="email" class="form-control" required>
+											<span class="label">Email Address</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+                                           <label for="username" class="btn">Username</label>
+
+											<input type="text" class="form-control" id="username" name="username" required>
+											<span class="label"></span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+                                             <label for="password_1" class="btn">Password</label>
+
+											<input type="password" name="password_1" id="password_1" class="form-control" required>
+											<span class="label"></span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<input type="password" name="comfirm_password_1" id="comfirm_password_1" class="form-control" required>
+											<span class="label">Comfirm Password</span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+			            </section>
+						<!-- SECTION 2 -->
+			            <h2>
+			            	<span class="step-icon"><i class="zmdi zmdi-account "></i></span>
+			            	<span class="step-text">Personal</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<h3>Personal Information:</h3>
+			                	<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="first_name" name="first_name" required>
+											<span class="label">First Name*</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="last_name" name="last_name" required>
+											<span class="label">Last Name*</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+
+								</div>
+								<div class="form-row form-row-date">
+									<div class="form-holder form-holder-2">
+										<input type="date" class="form-control" id="date" name="date" required>
+										<span class="label">Date de naissance </span>
+										<span class="border"></span>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="phone" name="phone" required>
+											<span class="label">Phone Number*</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+
+							</div>
+			            </section>
+			            <!-- SECTION 3 -->
+						<h2>
+							<span class="step-icon"><i class="zmdi zmdi-shopping-basket"></i></span>
+							<span class="step-text">Shope</span>
+						</h2>
+
+						<section>
+							<div class="inner">
+								<h3>Shope Information:</h3>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<input type="text" name="adresse" id="adresse" class="form-control" required>
+											<span class="label">adresse</span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<select class="form-control" id="willaya" name="willaya" require>
+												<option value="1">-select wilaya-</option>
+												<option value="1">ee</option>
+												<option value="1">ee</option>
+												<option value="1">ee</option>
+
+											</select>
+											<span class="label"></span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<select class="form-control" id="type" name="type" require>
+												<option value="1">-select type-</option>
+												<option value="1">ee</option>
+												<option value="1">ee</option>
+												<option value="1">ee</option>
+
+											</select>
+											<span class="label"></span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<label for="logo" class="btn">Select Logo</label>
+
+											<input type="file" name="logo" id="logo" class="form-control" required>
+
+											<span class="label"></span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</section>
+			            <!-- SECTION 4 -->
+
+						<h2>
+							<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
+							<span class="step-text">Payment</span>
+						</h2>
+						<section>
+							<div class="inner">
+								<h3>Payment Information:</h3>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="holder" name="holder" required>
+											<span class="label">Holder Name*</span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<label for="card" class="btn">Select facture</label>
+
+											<input type="file" class="form-control" id="card" name="card" required>
+
+										</label>
+									</div>
+
+								</div>
+
+								</div>
+							<div>
+							</div>
+
+						</section>
+		        	</div>
+					<input type="submit" id="finish" value="finish" style="display: none">
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+ {% endblock %}
