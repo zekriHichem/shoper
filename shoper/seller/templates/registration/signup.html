@@ -11,7 +11,9 @@
 					<h3 class="heading">Sign Up Your User Account</h3>
 					<p>Fill all form field to go next step</p>
 				</div>
-		        <form class="form-register" action="#" method="post">
+		        <form class="form-register" action="{% url 'signup_page' %}" method="post" enctype="multipart/form-data">
+                         {% csrf_token %}
+                 {% load widget_tweaks %}
 		        	<div id="form-total">
 		        		<!-- SECTION 1 -->
 			            <h2>
@@ -24,7 +26,7 @@
 			                	<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<input type="text" name="email" id="email" class="form-control" required>
+                                            {% render_field form.email id="email" name="email" class="form-control" type="email"%}
 											<span class="label">Email Address</span>
 					  						<span class="border"></span>
 										</label>
@@ -34,8 +36,8 @@
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
                                            <label for="username" class="btn">Username</label>
+                                            {% render_field form.username id="username" name="username" class="form-control" %}
 
-											<input type="text" class="form-control" id="username" name="username" required>
 											<span class="label"></span>
 					  						<span class="border"></span>
 										</label>
@@ -46,7 +48,7 @@
 										<label class="form-row-inner">
                                              <label for="password_1" class="btn">Password</label>
 
-											<input type="password" name="password_1" id="password_1" class="form-control" required>
+                                            {% render_field form.password1 id="password1" name="password1" class="form-control" %}
 											<span class="label"></span>
 											<span class="border"></span>
 										</label>
@@ -55,8 +57,8 @@
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<input type="password" name="comfirm_password_1" id="comfirm_password_1" class="form-control" required>
-											<span class="label">Comfirm Password</span>
+                                            {% render_field form.password2 id="password2" name="password2" class="form-control" %}
+											<span class="label"></span>
 											<span class="border"></span>
 										</label>
 									</div>
@@ -74,38 +76,20 @@
 			                	<div class="form-row">
 									<div class="form-holder">
 										<label class="form-row-inner">
-											<input type="text" class="form-control" id="first_name" name="first_name" required>
+                                            {% render_field form.first_name id="first_name" name="first_name" class="form-control" %}
 											<span class="label">First Name*</span>
 					  						<span class="border"></span>
 										</label>
 									</div>
 									<div class="form-holder">
 										<label class="form-row-inner">
-											<input type="text" class="form-control" id="last_name" name="last_name" required>
+                                            {% render_field form.last_name id="last_name" name="last_name" class="form-control" %}
 											<span class="label">Last Name*</span>
 					  						<span class="border"></span>
 										</label>
 									</div>
 								</div>
-								<div class="form-row">
 
-								</div>
-								<div class="form-row form-row-date">
-									<div class="form-holder form-holder-2">
-										<input type="date" class="form-control" id="date" name="date" required>
-										<span class="label">Date de naissance </span>
-										<span class="border"></span>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="phone" name="phone" required>
-											<span class="label">Phone Number*</span>
-					  						<span class="border"></span>
-										</label>
-									</div>
-								</div>
 
 							</div>
 			            </section>
@@ -121,7 +105,8 @@
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<input type="text" name="adresse" id="adresse" class="form-control" required>
+                                          {% render_field form2.address id="address" name="address" class="form-control" %}
+
 											<span class="label">adresse</span>
 											<span class="border"></span>
 										</label>
@@ -130,13 +115,8 @@
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<select class="form-control" id="willaya" name="willaya" require>
-												<option value="1">-select wilaya-</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
+											{% render_field form2.wilaya id="wilaya" name="wilaya" class="form-control"  %}
 
-											</select>
 											<span class="label"></span>
 											<span class="border"></span>
 										</label>
@@ -145,13 +125,8 @@
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<select class="form-control" id="type" name="type" require>
-												<option value="1">-select type-</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
+											{% render_field form2.type_shope id="type_shope" name="type_shope" class="form-control" %}
 
-											</select>
 											<span class="label"></span>
 											<span class="border"></span>
 										</label>
@@ -162,10 +137,19 @@
 										<label class="form-row-inner">
 											<label for="logo" class="btn">Select Logo</label>
 
-											<input type="file" name="logo" id="logo" class="form-control" required>
+											{% render_field form2.logo id="logo" name="logo" class="form-control" %}
 
 											<span class="label"></span>
 											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+                                	<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label class="form-row-inner">
+											{% render_field form2.num_phone id="num_phone" name="num_phone" class="form-control" %}
+											<span class="label">Phone Number*</span>
+					  						<span class="border"></span>
 										</label>
 									</div>
 								</div>
@@ -199,7 +183,7 @@
 										<label class="form-row-inner">
 											<label for="card" class="btn">Select facture</label>
 
-											<input type="file" class="form-control" id="card" name="card" required>
+											{% render_field form2.bill id="bill" name="bill" class="form-control" %}
 
 										</label>
 									</div>
