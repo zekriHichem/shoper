@@ -13,7 +13,8 @@ from .tokens import *
 
 # Create your views here.
 
-
+# views autentification------------------------------------------------------------------
+#login view
 def login_page(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST or None)
@@ -26,7 +27,7 @@ def login_page(request):
 
     return render(request,'registration/login.html',locals())
 
-
+#signup view
 def signup_page(request):
     if request.method == "POST":
         form = signupForm(request.POST or None)
@@ -67,6 +68,7 @@ def signup_page(request):
         form2 = ShopeForm(request.POST or None)
     return render(request, 'registration/signup.html', locals())
 
+#email confirmation view
 def activate(request, uidb64, token,id):
 
     try:
@@ -83,3 +85,33 @@ def activate(request, uidb64, token,id):
 
     else:
         return HttpResponse('Activation link is invalid!')
+# end ------------------------------------------------------------------------------------
+
+
+#views shope ------------------------------------------------------------------------------
+#Home view
+def dashboard(request):
+    return render(request,"seller/home.html")
+
+#Show product view
+def products(request):
+    return render(request,"seller/product.html")
+
+#Single product view
+def signleProduct(request):
+    return render(request,"seller/singleproduct.html")
+#Add product view
+def addProduct(request):
+    return render(request,"seller/add.html")
+
+#Buy view
+def buy(request):
+    return render(request,"seller/buy.html")
+
+
+# end ---------------------------------------------------------------------------------------------------------------------
+
+# setting views -----------------------------------------------------------------------------------------------------------
+
+
+

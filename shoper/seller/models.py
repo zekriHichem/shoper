@@ -27,17 +27,22 @@ class Shope(models.Model):
 class Product(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    id = models.CharField(max_length=50)
     discription = models.TextField()
     price_buy= models.FloatField()
     price = models.FloatField()
     price_reduction = models.FloatField()
     nb = models.IntegerField()
-    first_images = ArrayField(models.FileField(upload_to='image',null=True,blank=True),size=5)
+    first_images = models.FileField(upload_to='image', default="logo/default.png", verbose_name="")
     add_field = models.TextField()
 
 class Buy(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product)
-    total_price = models.FloatField()
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    amount = models.IntegerField()
+
+class Cart (models.Model) :
+    shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
+    buys = models.ManyToManyField(Buy)
     date = models.DateTimeField()
 
