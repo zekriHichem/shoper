@@ -24,7 +24,7 @@ def login_page(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return HttpResponse("Dashboard")
+            return redirect("dashboard")
         else:
             print(form.errors)
     else:

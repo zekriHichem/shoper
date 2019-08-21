@@ -3,11 +3,20 @@
 
     {% block content %}
         {% load static %}
+        <style>
+        .errorlist * {
+            color: red;
+        }
+        </style>
 <div class="page-content" style="background-image: url({% static 'registration/images/wizard-v3.jpg' %})">
 	<div class="wizard-v3-content">
 		<div class="wizard-form">
 			<div class="wizard-header">
 				<h3 class="heading">Sign IN Your User Account</h3>
+                {% if form.errors %}
+                    <p style="color:red;">{{ form.errors }}</p>
+
+                {% endif %}
 			</div>
 			<form class="form-register" action="{% url 'login_page' %}" method="post">
                  {% csrf_token %}

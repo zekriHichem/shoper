@@ -47,7 +47,7 @@
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="#" class="navbar-brand d-none d-sm-inline-block">
-                  <div class="brand-text d-none d-lg-inline-block"><span>Shoper </span><strong>Your shope</strong></div>
+                  <div class="brand-text d-none d-lg-inline-block"><span>Shopper </span><strong>Your shop</strong></div>
                   <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>Sh</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
@@ -84,9 +84,9 @@
 
           </ul><span class="heading">Settings</span>
           <ul class="list-unstyled">
-            <li> <a href="#"> <i class="icon-user"></i>Profile </a></li>
+            <li id="profile_nav" class="e"> <a href="{% url 'profile' %}"> <i class="icon-user"></i>Profile </a></li>
             <li> <a href="#"> <i class="icon-list"></i>Contact List </a></li>
-            <li> <a href="#"> <i class="icon-mail"></i>Contact Us </a></li>
+            <li id="contact_us_nav" class="e"> <a href="{% url 'contact_us' %}"> <i class="icon-mail"></i>Contact Us </a></li>
           </ul>
         </nav>
 
