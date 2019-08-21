@@ -15,7 +15,7 @@ WILLAYA = (("1","Adrar"),("2","Chelf"),("3","Laghouat"),("4","Oum El Bouaghi"),(
            ("44","Aïn Defla",),("45","Naâma",),("46","Aïn Témouchent",),("47","Ghardaïa",),("48","Relizane",))
 
 class Shope(models.Model):
-    user = models.ForeignKey(User,on_delete = models.CASCADE,unique=True,null=True)
+    user = models.OneToOneField(User,on_delete = models.CASCADE,unique=True,null=True)
     date_creation = models.DateTimeField(null=True,blank=True)
     type_shope = models.CharField(choices=TYPE_SHOPE,max_length=50)
     num_phone = models.CharField(max_length=15)
@@ -27,7 +27,7 @@ class Shope(models.Model):
 class Product(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    id = models.CharField(max_length=50)
+    idd = models.CharField(max_length=50)
     discription = models.TextField()
     price_buy= models.FloatField()
     price = models.FloatField()
@@ -40,9 +40,11 @@ class Buy(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     amount = models.IntegerField()
+    date = models.DateTimeField()
 
 class Cart (models.Model) :
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
-    buys = models.ManyToManyField(Buy)
-    date = models.DateTimeField()
+    buys = models.ManyToManyField(Buy,null = True,blank=True)
+    date = models.DateTimeField(null=True,blank=True)
+    total = models.FloatField(null=True,blank=True)
 

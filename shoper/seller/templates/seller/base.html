@@ -69,18 +69,18 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="{% static 'seller/img/avatar-1.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="{{ shope.logo.url }}" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Mark Stephen</h1>
-              <p>Web Designer</p>
+              <h1 class="h4">{{ user.first_name }}</h1>
+              <p>{{ shope.get_type_shope_display }}</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-            <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="tables.html"> <i class="icon-grid"></i>Product </a></li>
-            <li><a href="charts.html"> <i class="fa fa-plus"></i>Add product </a></li>
-            <li><a href="forms.html"> <i class="fa fa-shopping-cart"></i>Buy </a></li>
+            <li id="home_nav" class="e active"><a href="{% url 'dashboard' %}"> <i class="icon-home"></i>Home </a></li>
+            <li id="product_nav" class="e"><a href="{% url 'products' %}"> <i class="icon-grid"></i>Product </a></li>
+            <li id="add_nav" class="e"><a href="{% url 'addProduct' %}"> <i class="fa fa-plus"></i>Add product </a></li>
+            <li id="buy_nav" class="e"><a href="{% url 'buy' %}"> <i class="fa fa-shopping-cart"></i>Buy </a></li>
 
           </ul><span class="heading">Settings</span>
           <ul class="list-unstyled">

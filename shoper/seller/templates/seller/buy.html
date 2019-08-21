@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-3 mt-2">
-                          <input type="submit" value="Valid" class="btn btn-success w-100">
+                          <input type="button" onclick="sub()" value="Valid" class="btn btn-success w-100">
 
                     </div>
 
@@ -55,104 +55,83 @@
                 </div>
               </div>
 
-              <!-- Project-->
-              <div id="1" class="project p" draggable="true"  ondragstart="drag(event)" >
+                {% if products %}
+                    {% for product in products %}
+                      <!-- Project-->
+              <div id="{{ product.id }}" class="project p" draggable="true"  ondragstart="drag(event)" >
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="{% static 'seller/img/project-1.jpg' %}" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="{{ product.first_images.url }}" alt="..." class="img-fluid"></div>
                       <div class="text">
-                        <h3 class="h4 titre">Product Title</h3><small>Discription</small>
+                        <h3 class="h4 titre">{{ product.title }}</h3><small>Discription</small>
                       </div>
                     </div>
                     <div class="project-date"><span class="hidden-sm-down"></span></div>
                   </div>
                   <div class="right-col col-lg-6 d-flex align-items-center">
-                      <div class="time"><i class="fa fa-money"></i><span class="price">20000</span> DA</div>
-                    <div class="comments">20</div>
+                      <div class="time"><i class="fa fa-money"></i><span class="price">{{ product.price }}</span> DA</div>
+                    <div class="comments">{{ product.nb }}</div>
                     <div class="project-progress">
                       <div class="progress">
-                        <div role="progressbar" style="width: 45%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red qttp"></div>
+                        <div role="progressbar" style="width: 45%; height: 6px;" aria-valuenow="{{ product.nb }}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red qttp"></div>
                       </div>
-                       <input type="number" class="form-control qtt" value="1" style="display:none;" max="20" min="0">
+                       <input id="qtt{{ product.id }}" type="number" class="form-control qtt" value="1" style="display:none;" max="20" min="0">
 
                     </div>
-                      <a onclick="deletee(1)" href="#" class="close" style="display:none;"></a>
+                      <a onclick="deletee({{ product.id }})" href="#" class="close" style="display:none;"></a>
                   </div>
                 </div>
               </div>
-              <!-- Project-->
-              <div id="2" class="project p" draggable="true"  ondragstart="drag(event)" >
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="{% static 'seller/img/project-2.jpg' %}" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h3 class="h4 titre">Project Title</h3><small>Lorem Ipsum Dolor</small>
-                      </div>
-                    </div>
-                    <div class="project-date"><span class="hidden-sm-down"></span></div>
-                  </div>
-                  <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="time"><i class="fa fa-clock-o"></i>12:00 PM </div>
-                    <div class="comments"><i class="fa fa-comment-o"></i>20</div>
-                    <div class="project-progress">
-                      <div class="progress">
-                        <div role="progressbar" style="width: 60%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Project-->
-              <div id="3" class="project p" draggable="true"  ondragstart="drag(event)" >
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="{% static 'seller/img/project-3.jpg' %}" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h3 class="h4 titre">Project Title</h3><small>Lorem Ipsum Dolor</small>
-                      </div>
-                    </div>
-                    <div class="project-date"><span class="hidden-sm-down"></span></div>
-                  </div>
-                  <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="time"><i class="fa fa-clock-o"></i>12:00 PM </div>
-                    <div class="comments"><i class="fa fa-comment-o"></i>20</div>
-                    <div class="project-progress">
-                      <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Project-->
-              <div id="4" class="project p" draggable="true"  ondragstart="drag(event)" >
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="{% static 'seller/img/project-4.jpg' %}" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h3 class="h4 titre">Project Title</h3><small>Lorem Ipsum Dolor</small>
-                      </div>
-                    </div>
-                    <div class="project-date"><span class="hidden-sm-down"></span></div>
-                  </div>
-                  <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="time"><i class="fa fa-clock-o"></i>12:00 PM </div>
-                    <div class="comments"><i class="fa fa-comment-o"></i>20</div>
-                    <div class="project-progress">
-                      <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
             </div>
 
           </section>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Carts Table</h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>date</th>
+                              <th>total</th>
+                              <th>facture</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for cart in carts %}
+                            <tr>
+                              <th scope="row">{{ cart.id }}</th>
+                              <td>{{ cart.date }}</td>
+                              <td>{{ cart.total }}</td>
+                              <td><a href="#">facture</a> </td>
+                            </tr>
+                          {% endfor %}
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+
 </div>
 </div>
     <script src="{% static 'seller/vendor/jquery/jquery.min.js' %}"></script>
@@ -234,4 +213,62 @@ function deletee(id) {
 
 </script>
 
+<script>
+var i = 0;
+function sub() {
+    l=$("#div1").find(".p").length;
+    $("#div1").find(".p").each(function () {
+        var id = $(this).attr("id");
+        var qtt = $("#qtt"+id).val();
+
+                var data={
+                    'idp' : id,
+                    'qtt' : qtt};
+
+        $.ajax({
+            url: "http://127.0.0.1:8000/recive_buy/",
+            type: 'GET',
+            data:data,
+            dataType: 'json',
+            success: function (data){
+              console.log(data.id);
+              i++;
+            }
+        });
+
+    });
+
+    var inter = setInterval(function () {
+        if (i == l ){
+             clearInterval(inter);
+                var data={
+                    'ok' : 'ok'}
+
+
+        $.ajax({
+            url: "http://127.0.0.1:8000/recive_cart/",
+            type: 'GET',
+            data:data,
+            dataType: 'json',
+            success: function (data){
+              console.log(data.error);
+              location.reload();
+
+            }
+        });
+
+        }
+
+
+    },1000);
+}
+
+
+</script>
+
+<script>
+
+$(".e").removeClass("active");
+$("#buy_nav").addClass("active");
+</script>
    {% endblock %}

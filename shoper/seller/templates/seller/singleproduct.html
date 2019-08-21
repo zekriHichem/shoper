@@ -8,7 +8,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">product : Titre Produite</h2>
+              <h2 class="no-margin-bottom">product : {{ product.title }}</h2>
             </div>
           </header>
           <section class="dashboard-header">
@@ -18,26 +18,26 @@
                 <!-- Line Chart            -->
                 <div class="chart col-lg-6 col-12">
                   <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
-                    <img src="{% static  'seller/img/product.jpg' %}" alt="this is image"  height="400px">
+                    <img src="{{ product.first_images.url }}" alt="this is image"  height="400px">
                   </div>
                 </div>
                    <!-- Statistics -->
                 <div class="statistics col-lg-3 col-12">
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-red"><i class="fa fa-shopping-cart"></i></div>
-                    <div class="text"><strong>234</strong><br><small>Buy</small></div>
+                    <div class="text"><strong>{{ buys }}</strong><br><small>Buy</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-green"><i class="fa fa-list-ol"></i></div>
-                    <div class="text"><strong>152</strong><br><small>Pieces</small></div>
+                    <div class="text"><strong>{{ product.nb }}</strong><br><small>Pieces</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-blue"><i class="fa fa-money"></i></div>
-                    <div class="text"><strong>147</strong><br><small>DA</small></div>
+                    <div class="text"><strong>{{ product.price }}</strong><br><small>DA</small></div>
                   </div>
                      <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-orange"><i class="fa fa-money"></i></div>
-                    <div class="text"><strong>147</strong><br><small>DA</small></div>
+                    <div class="text"><strong>{{ product.price_reduction }}</strong><br><small>DA</small></div>
                   </div>
 
                 </div>
@@ -50,47 +50,62 @@
                       <h3 class="h4"> Edit information</h3>
                     </div>
                     <div class="card-body">
-                      <p>Lorem ipsum dolor sit amet consectetur.</p>
-                     <form style="padding: 50px">
+                      <p></p>
+                    <form style="padding: 50px" method="post" action="{% url 'signleProduct' product.id %}" enctype="multipart/form-data">
+                         {% csrf_token %}
                          <div class="row">
                            <div class="form-group-material col-lg-6">
-                              <input id="title" type="text" name="title" required class="input-material">
+                              <input id="title" type="text" readonly name="title" required class="input-material" value="{{ product.title }}">
                               <label for="title" class="label-material">Title of product</label>
                             </div>
                              <div class="form-group-material col-lg-6">
-                              <input id="pricebuy" type="number" name="pricebuy" required class="input-material">
-                              <label for="pricebuy" class="label-material">Price of buy</label>
+                              <input id="idd" type="text" readonly name="idd" required class="input-material" value="{{ product.idd }}">
+                              <label for="idd" class="label-material">ID</label>
                             </div>
                         </div>
                           <div class="row">
                            <div class="form-group-material col-lg-12">
-                                  <label for="discription" class="label-material">Discription of product</label>
-                               <textarea id="discription" placeholder="Disccription of product here" class="input-material" name="discription" style="width: 100%;min-height:100px;border-radius: 5px"></textarea>
+                                  <label for="discription" class="label-material" >Discription of product</label>
+                               <textarea id="discription" readonly placeholder="Disccription of product here" class="input-material" name="discription" style="width: 100%;min-height:100px;border-radius: 5px">{{ product.discription }}</textarea>
                             </div>
                         </div>
                           <div class="row">
                            <div class="form-group-material col-lg-6">
-                              <input id="price" type="number" name="price" required class="input-material">
-                              <label for="pricebuy" class="label-material">Price</label>
+                              <input id="price" type="number" name="price" value="{{ product.price }}" readonly required class="input-material">
+                              <label for="price" class="label-material">Price</label>
                             </div>
                              <div class="form-group-material col-lg-6">
-                              <input id="amount" type="number" name="amount" required class="input-material">
+                              <input id="amount" type="number" name="amount" value="{{ product.nb }}"  readonly required class="input-material">
                               <label for="amount" class="label-material">Amount of product</label>
                             </div>
                         </div>
                          <div class="row">
                            <div class="form-group-material col-lg-12">
                                   <label for="addition" class="label-material">Addition</label>
-                               <textarea id="addition" placeholder="Any Adition (colors , type ...etc)" class="input-material" name="addition" style="width: 100%;min-height:100px;border-radius: 5px"></textarea>
+                               <textarea id="addition" placeholder="Any Adition (colors , type ...etc)" readonly class="input-material" name="addition" style="width: 100%;min-height:100px;border-radius: 5px">{{ product.add_field }}</textarea>
                             </div>
-                              <div class="form-group-material col-lg-12">
+
+                        </div>
+                           <div class="row">
+                           <div class="form-group-material col-lg-12">
+                                 <input id="pricer" type="number" name="pricer" value="{{ product.price_reduction }}" required class="input-material">
+                              <label for="pricer" class="label-material">Price of reduction</label>  </div>
+
+                        </div>
+                         <div class="row">
+                            <div id="img_div" class="form-group-material col-lg-6" style="display: none">
                                   <label for="addition" class="label-material">Image</label>
-                              <input id="image" type="file" name="image" required class="input-material">
+                              <input id="image" type="file" name="image"  class="input-material">
+                            </div>
+                             <div class="form-group-material col-lg-6">
+                              <input id="pricebuy" type="number" name="pricebuy" readonly value="{{ product.price_buy }}" required class="input-material">
+                              <label for="pricebuy" class="label-material">Price of buy</label>
                             </div>
                         </div>
                          <div class="row">
                              <div class="col-lg-6 offset-3">
-                                 <button type="submit" class="btn btn-primary" style="width: 100%">Add Product</button>
+                                 <button id="save" type="submit"  class="btn btn-primary" style="width: 100%;display: none"> Save change</button>
+                                 <a id="edit" onclick="edit()" class="btn btn-success" style="width: 100%;color: white">Edit Product</a>
 
                              </div>
                          </div>
@@ -102,7 +117,29 @@
 
 </div>
 
+    <script src="{% static 'seller/vendor/jquery/jquery.min.js' %}"></script>
 
 
+<script>
 
+function edit() {
+    $("#edit").hide();
+
+
+        $("#save").css("display","block");
+
+            $("#img_input").css("display","block");
+
+        $(".input-material").each(function () {
+            $(this).removeAttr("readonly")
+        })
+    $("#img_div").css("display","block")
+}
+
+</script>
+       <script>
+
+$(".e").removeClass("active");
+$("#product_nav").addClass("active");
+</script>
    {% endblock %}

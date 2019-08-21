@@ -33,3 +33,59 @@
     border: dashed 1px black;
     margin-bottom: 20px;
 }
+
+
+
+.alert {
+  opacity:1;
+  -webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+-webkit-box-shadow: 0px 3px 11px -8px rgba(0,0,0,0.54);
+-moz-box-shadow: 0px 3px 11px -8px rgba(0,0,0,0.54);
+box-shadow: 0px 3px 11px -8px rgba(0,0,0,0.54);
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffcd36+0,ff9f19+100 */
+background: #23ff21; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #a3ff4a 0%, #0bff3a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #a3ff4a 0%, #0bff3a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #a3ff4a 0%, #0bff3a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcd36', endColorstr='#ff9f19',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border:none;
+  width:250px;
+  height:70px;
+  float: right;
+  top:30px;
+  right:12px;
+}
+.alert h2 {
+  font-size:14px;
+  color:#fff;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.btn-close {
+ position: relative;
+  top: 0%;
+  right:-90%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:#fff;
+    -webkit-transition: all 0.1s ease-in-out;
+-moz-transition: all 0.1s ease-in-out;
+-ms-transition: all 0.1s ease-in-out;
+-o-transition: all 0.1s ease-in-out;
+transition: all 0.1s ease-in-out;
+}
+.btn-close:hover {
+ font-size:10px;
+}
+.esconder {
+  right:-300px;
+  opacity:0;
+}

@@ -2,14 +2,17 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import *
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.core.mail import EmailMessage
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from .tokens import *
+from django.utils import timezone
+from django.db.models import Sum,Avg
+import datetime
 
 # Create your views here.
 
@@ -22,6 +25,8 @@ def login_page(request):
             user = form.get_user()
             login(request, user)
             return HttpResponse("Dashboard")
+        else:
+            print(form.errors)
     else:
         form = AuthenticationForm(data=request.POST or None)
 
@@ -91,22 +96,218 @@ def activate(request, uidb64, token,id):
 #views shope ------------------------------------------------------------------------------
 #Home view
 def dashboard(request):
-    return render(request,"seller/home.html")
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    nb_selle_to_day, nb_p_b_t, money_total, product_day =  to_day_stat(shope)
+    nb_product, nb_cart, cart_m = total_stat(shope)
+    b_1_2,b_2_3,b_3_4 ,b_4_5 ,b_5_6 ,b_6_7 ,b_7_8 ,b_8_9 ,b_9_10 ,b_10_11,b_11_12,b_12_13,b_13_14,b_14_15,b_15_16,b_16_17,b_17_18,b_18_19,b_19_20,b_20_21,b_21_22,b_22_23,b_23_00 = hour_stat(shope)
+    lun, mar, mer, jeudi, ven, sam, dim = days_stat(shope)
+    return render(request,"seller/home.html",locals())
+
+def hour_stat(shope):
+    b_1_2 = Buy.objects.filter(shope=shope).filter(date__hour__in=(1,2)).aggregate(Avg("amount"))
+    b_2_3 = Buy.objects.filter(shope=shope).filter(date__hour__in=(2,3)).aggregate(Avg("amount"))
+    b_3_4 = Buy.objects.filter(shope=shope).filter(date__hour__in=(3,4)).aggregate(Avg("amount"))
+    b_4_5 = Buy.objects.filter(shope=shope).filter(date__hour__in=(4,5)).aggregate(Avg("amount"))
+    b_5_6 = Buy.objects.filter(shope=shope).filter(date__hour__in=(5,6)).aggregate(Avg("amount"))
+    b_6_7 = Buy.objects.filter(shope=shope).filter(date__hour__in=(6,7)).aggregate(Avg("amount"))
+    b_7_8 = Buy.objects.filter(shope=shope).filter(date__hour__in=(7,8)).aggregate(Avg("amount"))
+    b_8_9 = Buy.objects.filter(shope=shope).filter(date__hour__in=(8,9)).aggregate(Avg("amount"))
+    b_9_10 = Buy.objects.filter(shope=shope).filter(date__hour__in=(9,10)).aggregate(Avg("amount"))
+    b_10_11 = Buy.objects.filter(shope=shope).filter(date__hour__in=(10,11)).aggregate(Avg("amount"))
+    b_11_12 = Buy.objects.filter(shope=shope).filter(date__hour__in=(11,12)).aggregate(Avg("amount"))
+    b_12_13 = Buy.objects.filter(shope=shope).filter(date__hour__in=(12,13)).aggregate(Avg("amount"))
+    b_13_14 = Buy.objects.filter(shope=shope).filter(date__hour__in=(13,14)).aggregate(Avg("amount"))
+    b_14_15 = Buy.objects.filter(shope=shope).filter(date__hour__in=(14,15)).aggregate(Avg("amount"))
+    b_15_16 = Buy.objects.filter(shope=shope).filter(date__hour__in=(15,16)).aggregate(Avg("amount"))
+    b_16_17 = Buy.objects.filter(shope=shope).filter(date__hour__in=(16,17)).aggregate(Avg("amount"))
+    b_17_18 = Buy.objects.filter(shope=shope).filter(date__hour__in=(17,18)).aggregate(Avg("amount"))
+    b_18_19 = Buy.objects.filter(shope=shope).filter(date__hour__in=(18,19)).aggregate(Avg("amount"))
+    b_19_20 = Buy.objects.filter(shope=shope).filter(date__hour__in=(19,20)).aggregate(Avg("amount"))
+    b_20_21 = Buy.objects.filter(shope=shope).filter(date__hour__in=(20,21)).aggregate(Avg("amount"))
+    b_21_22 = Buy.objects.filter(shope=shope).filter(date__hour__in=(21,22)).aggregate(Avg("amount"))
+    b_22_23 = Buy.objects.filter(shope=shope).filter(date__hour__in=(22,23)).aggregate(Avg("amount"))
+    b_23_00 = Buy.objects.filter(shope=shope).filter(date__hour__in=(23,0)).aggregate(Avg("amount"))
+    return b_1_2,b_2_3,b_3_4 ,b_4_5 ,b_5_6 ,b_6_7 ,b_7_8 ,b_8_9 ,b_9_10 ,b_10_11,b_11_12,b_12_13,b_13_14,b_14_15,b_15_16,b_16_17,b_17_18,b_18_19,b_19_20,b_20_21,b_21_22,b_22_23,b_23_00
+
+def days_stat(shope):
+    lun = Buy.objects.filter(shope=shope).filter(date__week_day=0).aggregate(Avg("amount"))
+    mar = Buy.objects.filter(shope=shope).filter(date__week_day=1).aggregate(Avg("amount"))
+    mer = Buy.objects.filter(shope=shope).filter(date__week_day=2).aggregate(Avg("amount"))
+    jeudi = Buy.objects.filter(shope=shope).filter(date__week_day=3).aggregate(Avg("amount"))
+    ven = Buy.objects.filter(shope=shope).filter(date__week_day=4).aggregate(Avg("amount"))
+    sam = Buy.objects.filter(shope=shope).filter(date__week_day=5).aggregate(Avg("amount"))
+    dim = Buy.objects.filter(shope=shope).filter(date__week_day=6).aggregate(Avg("amount"))
+    return lun,mar,mer,jeudi,ven,sam,dim
+
+
+
+
+def total_stat(shope):
+    nb_product = Product.objects.filter(shope=shope).count()
+    nb_cart = Cart.objects.filter(shope=shope).count()
+    cart_m = Cart.objects.filter(shope=shope).filter(date__month=timezone.now().date().month).aggregate(Sum("total"))
+    return nb_product,nb_cart,cart_m
+
+
+def to_day_stat(shope):
+    nb_selle_to_day = Cart.objects.filter(shope=shope).filter(date__date=timezone.now().date()).count()
+    carts = Cart.objects.filter(shope=shope).filter(date__date=timezone.now().date())
+    nb_p_b_t = 0
+    money_total = 0
+    products = []
+    amounts = []
+    for cart in carts:
+        money_total += cart.total
+        for buy in cart.buys.all():
+            if products.__contains__(buy.product):
+                pass
+            else:
+                products.append(buy.product)
+            nb_p_b_t += buy.amount
+    for product in products:
+        result = Buy.objects.filter(shope=shope).filter(date__date=timezone.now().date()).filter(
+            product=product).aggregate(Sum("amount"))
+        amounts.append(result)
+    amount_i = -1
+    amount_val = 0
+    i = 0
+    for amount in amounts:
+        if amount_i == -1:
+            amount_i = i
+            amount_val = amount.get("amount__sum")
+        if amount.get("amount__sum") > amount_val:
+            amount_i = i
+            amount_val = amount.get("amount__sum")
+
+        i += 1
+    if amount_i == -1 :
+        product_day = None
+    else:
+        product_day = products[amount_i]
+
+
+    return nb_selle_to_day,nb_p_b_t,money_total,product_day
+
 
 #Show product view
+@login_required()
 def products(request):
-    return render(request,"seller/product.html")
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    products = Product.objects.filter(shope=shope)
+    return render(request,"seller/product.html",locals())
 
 #Single product view
-def signleProduct(request):
-    return render(request,"seller/singleproduct.html")
+@login_required()
+def signleProduct(request,id):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    product = Product.objects.get(id=id)
+    buys = Buy.objects.filter(product=product).count()
+    if request.method == "POST":
+        product.title = request.POST["title"]
+        product.idd = request.POST["idd"]
+        product.discription = request.POST["discription"]
+        product.price = request.POST["price"]
+        product.price_buy = request.POST["pricebuy"]
+        product.nb = request.POST["amount"]
+        product.add_field = request.POST["addition"]
+        product.price_reduction = request.POST["pricer"]
+
+
+        if request.FILES.get('image') is None:
+            pass
+        else:
+            product.first_images = request.FILES.get('image')
+        product.save()
+        edited = True
+        return render(request, "seller/singleproduct.html", locals())
+    else:
+        return render(request, "seller/singleproduct.html", locals())
+
+    return render(request,"seller/singleproduct.html",locals())
 #Add product view
+@login_required()
 def addProduct(request):
-    return render(request,"seller/add.html")
+    user = request.user
+    shope = Shope.objects.get(user = user)
+    if request.method == "POST" :
+        title = request.POST["title"]
+        idd = request.POST["idd"]
+        discription = request.POST["discription"]
+        price = request.POST["price"]
+        price_buy = request.POST["pricebuy"]
+        nb = request.POST["amount"]
+        add_field = request.POST["addition"]
+        first_image = request.FILES.get("image")
+        price_reduction = 0
+        Product.objects.create(shope=shope,title=title,idd=idd,discription=discription,price=price,price_buy=price_buy
+                               ,nb=nb,add_field=add_field,first_images=first_image,price_reduction=price_reduction)
+        return render(request, "seller/add.html",{"is_added":True},locals())
+
+
+    else:
+        return render(request, "seller/add.html",locals())
+
+    return render(request,"seller/add.html",locals())
+
+@login_required()
+def sup_product(request,id):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    Product.objects.get(id=id).delete()
+    return redirect("products")
+
+
+buys = []
+
+def recive_buy(request):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    if request.method == "GET":
+        idp = request.GET.get("idp")
+        qtt = request.GET.get("qtt")
+        product = Product.objects.get(id=idp)
+        buy=Buy.objects.create(shope=shope,product=product,amount=qtt,date=timezone.now())
+        buys.append(buy.id)
+        return  JsonResponse({"id":buy.id})
+    return JsonResponse({"error":"ok"})
+
+def recive_cart(request):
+    buys_obj = []
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    print(buys)
+    cart = Cart.objects.create(shope=shope,date=timezone.now())
+    total = 0
+    for buy in buys:
+        b=Buy.objects.get(id=buy)
+        cart.buys.add(b)
+        total += b.product.price * b.amount
+    cart.total=total
+    cart.save()
+    buys.clear()
+
+    return JsonResponse({'error':'ok'})
+
+
+
 
 #Buy view
+@login_required()
 def buy(request):
-    return render(request,"seller/buy.html")
+    user = request.user
+    shope = Shope.objects.get(user = user)
+    products = Product.objects.filter(shope=shope)
+    carts = Cart.objects.filter(shope=shope).order_by("date").reverse()
+    return render(request,"seller/buy.html",locals())
+
+
+
+
+
+
 
 
 # end ---------------------------------------------------------------------------------------------------------------------

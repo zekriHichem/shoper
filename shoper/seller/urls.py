@@ -9,8 +9,12 @@ urlpatterns = [
 
     path('dashboard/',views.dashboard,name="dashboard"),
     path('product/', views.products, name="products"),
+    path('product/<int:id>', views.sup_product, name="sup_product"),
+
     path('addP/', views.addProduct, name="addProduct"),
-    path('singleP/', views.signleProduct, name="signleProduct"),
+    path('singleP/<int:id>', views.signleProduct, name="signleProduct"),
     path('buy/', views.buy, name="buy"),
+    path('recive_buy/', views.recive_buy, name="recive_buy"),
+    path('recive_cart/', views.recive_cart, name="recive_cart"),
 
 ]

@@ -11,22 +11,30 @@
               <h2 class="no-margin-bottom">Add Product</h2>
             </div>
           </header>
+
+
                 <div class="col-lg-12 mt-5">
+
+
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4"></h3>
                     </div>
                     <div class="card-body">
-                      <p>Lorem ipsum dolor sit amet consectetur.</p>
-                     <form style="padding: 50px">
+                                    <div id="alert" class="alert esconder">
+    <h2>Product added successfully</h2>
+    <div id="close"  class="btn btn-close">X</div>
+  </div>
+                     <form style="padding: 50px" method="post" action="{% url 'addProduct' %}" enctype="multipart/form-data">
+                         {% csrf_token %}
                          <div class="row">
                            <div class="form-group-material col-lg-6">
                               <input id="title" type="text" name="title" required class="input-material">
                               <label for="title" class="label-material">Title of product</label>
                             </div>
                              <div class="form-group-material col-lg-6">
-                              <input id="pricebuy" type="number" name="pricebuy" required class="input-material">
-                              <label for="pricebuy" class="label-material">Price of buy</label>
+                              <input id="idd" type="text" name="idd" required class="input-material">
+                              <label for="idd" class="label-material">ID</label>
                             </div>
                         </div>
                           <div class="row">
@@ -38,7 +46,7 @@
                           <div class="row">
                            <div class="form-group-material col-lg-6">
                               <input id="price" type="number" name="price" required class="input-material">
-                              <label for="pricebuy" class="label-material">Price</label>
+                              <label for="price" class="label-material">Price</label>
                             </div>
                              <div class="form-group-material col-lg-6">
                               <input id="amount" type="number" name="amount" required class="input-material">
@@ -50,9 +58,16 @@
                                   <label for="addition" class="label-material">Addition</label>
                                <textarea id="addition" placeholder="Any Adition (colors , type ...etc)" class="input-material" name="addition" style="width: 100%;min-height:100px;border-radius: 5px"></textarea>
                             </div>
-                              <div class="form-group-material col-lg-12">
+
+                        </div>
+                         <div class="row">
+                            <div class="form-group-material col-lg-6">
                                   <label for="addition" class="label-material">Image</label>
                               <input id="image" type="file" name="image" required class="input-material">
+                            </div>
+                             <div class="form-group-material col-lg-6">
+                              <input id="pricebuy" type="number" name="pricebuy" required class="input-material">
+                              <label for="pricebuy" class="label-material">Price of buy</label>
                             </div>
                         </div>
                          <div class="row">
@@ -71,6 +86,30 @@
     <script src="{% static 'seller/vendor/jquery/jquery.min.js' %}"></script>
       <script src="{% static 'seller/js/dropzone.js' %}"></script>
 
+<script>
 
+function animar() {
+
+            document.getElementById("alert").classList.remove("esconder");
+
+        }
+function close() {
+    $("#alert").addClass("esconder");
+        }
+
+{% if is_added %}
+       animar();
+    setTimeout(function () {
+        close()
+    },2000);
+
+{% endif %}
+</script>
+
+<script>
+
+$(".e").removeClass("active");
+$("#add_nav").addClass("active");
+</script>
 
    {% endblock %}
