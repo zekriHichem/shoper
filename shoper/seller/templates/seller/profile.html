@@ -20,7 +20,7 @@
                 <!-- Line Chart            -->
                 <div class="chart col-lg-6 col-12">
                   <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
-                    <img src="{% static  'seller/img/avatar-0.jpg' %}" alt="this is image"  height="400px">
+                    <img src="{{ shope.logo.url }}" alt="this is image"  height="400px">
                   </div>
                 </div>
                    <div class="chart col-lg-6 col-12">
@@ -30,55 +30,155 @@
                     </div>
                     <div class="card-body">
                       <p>Lorem ipsum dolor sit amet consectetur.</p>
-                     <form style="padding: 50px">
+                     <form style="padding: 50px" method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+                         {% csrf_token %}
                          <div class="row">
                            <div class="form-group-material col-lg-6">
-                              <input id="first_name" type="text" name="first_name" required class="input-material">
+                              <input id="first_name" type="text" name="first_name" required value="{{ user.first_name }}" class="input-material r" readonly>
                               <label for="first_name" class="label-material">First name</label>
                             </div>
                              <div class="form-group-material col-lg-6">
-                              <input id="last_name" type="text" name="last_name" required class="input-material">
+                              <input id="last_name" type="text" name="last_name" value="{{ user.last_name }}" required class="input-material r" readonly>
                               <label for="last_name" class="label-material">Last name</label>
                             </div>
                         </div>
                                <div class="row">
                            <div class="form-group-material col-lg-6">
-                              <input id="address" type="text" name="address" required class="input-material">
-                              <label for="address" class="label-material">Address</label>
+                              <input id="address" type="text" name="address" value="{{ shope.address }}" required class="input-material r" readonly>
+                              <label for="address" class="label-material" >Address</label>
                             </div>
                              <div class="form-group-material col-lg-6">
                               <label for="willaya" class="label-material">Willaya</label>
-                                <select class="form-control" id="willaya" name="willaya" require>
-												<option value="1">-select wilaya-</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
+                              <select name="wilaya" class="form-control r" id="wilaya" required="" readonly>
+  <option id="sel" value="" selected="">---------</option>
 
-											</select>
+  <option value="1">Adrar</option>
+
+  <option value="2">Chelf</option>
+
+  <option value="3">Laghouat</option>
+
+  <option value="4">Oum El Bouaghi</option>
+
+  <option value="5">Batna</option>
+
+  <option value="6">Béjaïa</option>
+
+  <option value="7">Biskra</option>
+
+  <option value="8">Béchar</option>
+
+  <option value="9">Blida</option>
+
+  <option value="10">Bouira</option>
+
+  <option value="11">Tamanrasset</option>
+
+  <option value="12">Tébessa</option>
+
+  <option value="13">Tlemcen</option>
+
+  <option value="14">Tiaret</option>
+
+  <option value="15">Tizi Ouzou</option>
+
+  <option value="16">Alger</option>
+
+  <option value="17">Djelfa</option>
+
+  <option value="18">Jijel</option>
+
+  <option value="19">Sétif</option>
+
+  <option value="20">Saïda</option>
+
+  <option value="21">Skikda</option>
+
+  <option value="22">Sidi Bel Abbès</option>
+
+  <option value="23">Annaba</option>
+
+  <option value="24">Guelma</option>
+
+  <option value="25">Constantine</option>
+
+  <option value="26">Médéa</option>
+
+  <option value="27">Mostaganem</option>
+
+  <option value="28">M'Sila</option>
+
+  <option value="29">Mascara</option>
+
+  <option value="30">Ouargla</option>
+
+  <option value="31">Oran</option>
+
+  <option value="32">El Bayadh</option>
+
+  <option value="33">Illizi</option>
+
+  <option value="34">Bordj Bou Arreridj</option>
+
+  <option value="35">Boumerdès</option>
+
+  <option value="36">El Tarf</option>
+
+  <option value="37">Tindouf</option>
+
+  <option value="38">Tissemsilt</option>
+
+  <option value="39">El Oued</option>
+
+  <option value="40">Khenchela</option>
+
+  <option value="41">Souk Ahras</option>
+
+  <option value="42">Tipaza</option>
+
+  <option value="43">Mila</option>
+
+  <option value="44">Aïn Defla</option>
+
+  <option value="45">Naâma</option>
+
+  <option value="46">Aïn Témouchent</option>
+
+  <option value="47">Ghardaïa</option>
+
+  <option value="48">Relizane</option>
+
+</select>
                             </div>
                         </div>
                              <div class="row">
                            <div class="form-group-material col-lg-6">
-                              <input id="phone" type="text" name="phone" required class="input-material">
+                              <input id="phone" type="text" name="phone" required class="input-material r" readonly value="{{ shope.num_phone }}">
                               <label for="phone" class="label-material">Phone</label>
                             </div>
                              <div class="form-group-material col-lg-6">
                                  <label for="type" class="label-material">Type</label>
-                                     <select class="form-control" id="type" name="type" require>
-												<option value="1">-select type-</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
-												<option value="1">ee</option>
+<select name="type_shope" class="form-control r" id="type_shope" required="" readonly>
+  <option id ="selt" value="" selected="">---------</option>
 
-											</select>
-                            </div>
+  <option value="MC">men clothing</option>
+
+  <option value="WC">women clothes</option>
+
+  <option value="IN">Informatique</option>
+
+  <option value="FU">furniture</option>
+
+  <option value="CO">cosmetic</option>
+
+</select>                            </div>
                         </div>
 
 
                          <div id="img_input" class="row" style="display:none;">
                               <div class="form-group-material col-lg-12">
                                   <label for="addition" class="label-material">Image</label>
-                              <input id="image" type="file" name="image" required class="input-material">
+                              <input id="image" type="file" name="image"  class="input-material">
                             </div>
                         </div>
                          <div class="row">
@@ -114,11 +214,25 @@ function edit() {
         $("#save").css("display","block");
 
             $("#img_input").css("display","block");
+            $(".r").each(function () {
+            $(this).removeAttr("readonly")
+        })
 
 
 }
 
 </script>
+<script>
 
+$("#sel").removeAttr("selected");
+var w = {{ shope.wilaya }};
+console.log(w);
+$("option[value=" + w + "]").attr("selected","true")
+
+$("#selt").removeAttr("selected");
+var w = "{{ shope.type_shope }}";
+console.log(w);
+$("option[value=" + w + "]").attr("selected","true")
+</script>
 
    {% endblock %}

@@ -44,7 +44,17 @@
                     <div class="project-date"><span class="hidden-sm-down">{{ product.idd }}</span></div>
                   </div>
                   <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="time"><i class="fa fa-money"></i>{{ product.price }} DA</div>
+                         {% if  product.is_in_reduction %}
+                                                      <div class="time"><i class="fa fa-money"></i>{{ product.price_reduction }} DA<br>
+                                                      <s>{{ product.price }} DA</s>
+
+                                                      </div>
+
+                                     {% else %}
+                                                        <div class="time"><i class="fa fa-money"></i>{{ product.price }} DA</div>
+
+                                     {% endif %}
+
                     <div class="comments">{{ product.nb }}</div>
                     <div class="project-progress">
                       <div class="progress">

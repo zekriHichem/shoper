@@ -87,9 +87,23 @@
 
                         </div>
                            <div class="row">
-                           <div class="form-group-material col-lg-12">
+                           <div class="form-group-material col-lg-9">
                                  <input id="pricer" type="number" name="pricer" value="{{ product.price_reduction }}" required class="input-material">
                               <label for="pricer" class="label-material">Price of reduction</label>  </div>
+                                <div class="form-group-material col-lg-3">
+                                 <select name="is_in_reduction" class="form-control mb-3">
+                                     {% if  product.is_in_reduction %}
+                                     <option>Active</option>
+                                                              <option>Not Active</option>
+                                     {% else %}
+                                         <option>Active</option>
+                                                              <option selected>Not Active</option>
+                                     {% endif %}
+
+
+                                                            </select>
+                                      </div>
+
 
                         </div>
                          <div class="row">

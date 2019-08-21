@@ -228,6 +228,11 @@ def signleProduct(request,id):
         product.nb = request.POST["amount"]
         product.add_field = request.POST["addition"]
         product.price_reduction = request.POST["pricer"]
+        if request.POST["is_in_reduction"] == "Active" :
+            product.is_in_reduction = True
+        else:
+            product.is_in_reduction = False
+
 
 
         if request.FILES.get('image') is None:
@@ -298,7 +303,11 @@ def recive_cart(request):
     for buy in buys:
         b=Buy.objects.get(id=buy)
         cart.buys.add(b)
-        total += b.product.price * b.amount
+        if b.product.is_in_reduction:
+            total += b.product.price_reduction * b.amount
+        else:
+            total += b.product.price * b.amount
+
     cart.total=total
     cart.save()
     buys.clear()
@@ -317,16 +326,37 @@ def buy(request):
     carts = Cart.objects.filter(shope=shope).order_by("date").reverse()
     return render(request,"seller/buy.html",locals())
 
-
-
-
-
-
-
-
 # end ---------------------------------------------------------------------------------------------------------------------
-
 # setting views -----------------------------------------------------------------------------------------------------------
 
 
+@login_required()
+def profile(request):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    if request.method == "POST":
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        shope.address = request.POST['address']
+        shope.wilaya = request.POST['wilaya']
+        shope.type_shope = request.POST['type_shope']
 
+
+        if request.FILES.get('image') is None:
+            print("hello")
+            pass
+        else:
+            print("hiii")
+            shope.logo = request.FILES.get('image')
+        user.save()
+        shope.save()
+        edited = True
+        return render(request, "seller/profile.html", locals())
+    else:
+        return render(request, "seller/profile.html", locals())
+    return render(request,"seller/profile.html",locals())
+
+
+@login_required()
+def contact_us(request):
+    return render(request,"seller/contact us.html")

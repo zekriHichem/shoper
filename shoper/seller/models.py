@@ -35,6 +35,7 @@ class Product(models.Model):
     nb = models.IntegerField()
     first_images = models.FileField(upload_to='image', default="logo/default.png", verbose_name="")
     add_field = models.TextField()
+    is_in_reduction =models.BooleanField(default=False)
 
 class Buy(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)

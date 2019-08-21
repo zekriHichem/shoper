@@ -17,4 +17,7 @@ urlpatterns = [
     path('recive_buy/', views.recive_buy, name="recive_buy"),
     path('recive_cart/', views.recive_cart, name="recive_cart"),
 
+    path("profile/",views.profile,name="profile"),
+    path("contact_us/", views.contact_us, name="contact_us")
+
 ]
