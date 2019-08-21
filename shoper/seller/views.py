@@ -102,43 +102,57 @@ def dashboard(request):
     nb_product, nb_cart, cart_m = total_stat(shope)
     b_1_2,b_2_3,b_3_4 ,b_4_5 ,b_5_6 ,b_6_7 ,b_7_8 ,b_8_9 ,b_9_10 ,b_10_11,b_11_12,b_12_13,b_13_14,b_14_15,b_15_16,b_16_17,b_17_18,b_18_19,b_19_20,b_20_21,b_21_22,b_22_23,b_23_00 = hour_stat(shope)
     lun, mar, mer, jeudi, ven, sam, dim = days_stat(shope)
+
+
+
     return render(request,"seller/home.html",locals())
 
 def hour_stat(shope):
-    b_1_2 = Buy.objects.filter(shope=shope).filter(date__hour__in=(1,2)).aggregate(Avg("amount"))
-    b_2_3 = Buy.objects.filter(shope=shope).filter(date__hour__in=(2,3)).aggregate(Avg("amount"))
-    b_3_4 = Buy.objects.filter(shope=shope).filter(date__hour__in=(3,4)).aggregate(Avg("amount"))
-    b_4_5 = Buy.objects.filter(shope=shope).filter(date__hour__in=(4,5)).aggregate(Avg("amount"))
-    b_5_6 = Buy.objects.filter(shope=shope).filter(date__hour__in=(5,6)).aggregate(Avg("amount"))
-    b_6_7 = Buy.objects.filter(shope=shope).filter(date__hour__in=(6,7)).aggregate(Avg("amount"))
-    b_7_8 = Buy.objects.filter(shope=shope).filter(date__hour__in=(7,8)).aggregate(Avg("amount"))
-    b_8_9 = Buy.objects.filter(shope=shope).filter(date__hour__in=(8,9)).aggregate(Avg("amount"))
-    b_9_10 = Buy.objects.filter(shope=shope).filter(date__hour__in=(9,10)).aggregate(Avg("amount"))
-    b_10_11 = Buy.objects.filter(shope=shope).filter(date__hour__in=(10,11)).aggregate(Avg("amount"))
-    b_11_12 = Buy.objects.filter(shope=shope).filter(date__hour__in=(11,12)).aggregate(Avg("amount"))
-    b_12_13 = Buy.objects.filter(shope=shope).filter(date__hour__in=(12,13)).aggregate(Avg("amount"))
-    b_13_14 = Buy.objects.filter(shope=shope).filter(date__hour__in=(13,14)).aggregate(Avg("amount"))
-    b_14_15 = Buy.objects.filter(shope=shope).filter(date__hour__in=(14,15)).aggregate(Avg("amount"))
-    b_15_16 = Buy.objects.filter(shope=shope).filter(date__hour__in=(15,16)).aggregate(Avg("amount"))
-    b_16_17 = Buy.objects.filter(shope=shope).filter(date__hour__in=(16,17)).aggregate(Avg("amount"))
-    b_17_18 = Buy.objects.filter(shope=shope).filter(date__hour__in=(17,18)).aggregate(Avg("amount"))
-    b_18_19 = Buy.objects.filter(shope=shope).filter(date__hour__in=(18,19)).aggregate(Avg("amount"))
-    b_19_20 = Buy.objects.filter(shope=shope).filter(date__hour__in=(19,20)).aggregate(Avg("amount"))
-    b_20_21 = Buy.objects.filter(shope=shope).filter(date__hour__in=(20,21)).aggregate(Avg("amount"))
-    b_21_22 = Buy.objects.filter(shope=shope).filter(date__hour__in=(21,22)).aggregate(Avg("amount"))
-    b_22_23 = Buy.objects.filter(shope=shope).filter(date__hour__in=(22,23)).aggregate(Avg("amount"))
-    b_23_00 = Buy.objects.filter(shope=shope).filter(date__hour__in=(23,0)).aggregate(Avg("amount"))
-    return b_1_2,b_2_3,b_3_4 ,b_4_5 ,b_5_6 ,b_6_7 ,b_7_8 ,b_8_9 ,b_9_10 ,b_10_11,b_11_12,b_12_13,b_13_14,b_14_15,b_15_16,b_16_17,b_17_18,b_18_19,b_19_20,b_20_21,b_21_22,b_22_23,b_23_00
+    b_1_2 = Buy.objects.filter(shope=shope).filter(date__hour__in=(1,2)).aggregate(Avg("amount")).get("amount__avg")
+    b_2_3 = Buy.objects.filter(shope=shope).filter(date__hour__in=(2,3)).aggregate(Avg("amount")).get("amount__avg")
+    b_3_4 = Buy.objects.filter(shope=shope).filter(date__hour__in=(3,4)).aggregate(Avg("amount")).get("amount__avg")
+    b_4_5 = Buy.objects.filter(shope=shope).filter(date__hour__in=(4,5)).aggregate(Avg("amount")).get("amount__avg")
+    b_5_6 = Buy.objects.filter(shope=shope).filter(date__hour__in=(5,6)).aggregate(Avg("amount")).get("amount__avg")
+    b_6_7 = Buy.objects.filter(shope=shope).filter(date__hour__in=(6,7)).aggregate(Avg("amount")).get("amount__avg")
+    b_7_8 = Buy.objects.filter(shope=shope).filter(date__hour__in=(7,8)).aggregate(Avg("amount")).get("amount__avg")
+    b_8_9 = Buy.objects.filter(shope=shope).filter(date__hour__in=(8,9)).aggregate(Avg("amount")).get("amount__avg")
+    b_9_10 = Buy.objects.filter(shope=shope).filter(date__hour__in=(9,10)).aggregate(Avg("amount")).get("amount__avg")
+    b_10_11 = Buy.objects.filter(shope=shope).filter(date__hour__in=(10,11)).aggregate(Avg("amount")).get("amount__avg")
+    b_11_12 = Buy.objects.filter(shope=shope).filter(date__hour__in=(11,12)).aggregate(Avg("amount")).get("amount__avg")
+    b_12_13 = Buy.objects.filter(shope=shope).filter(date__hour__in=(12,13)).aggregate(Avg("amount")).get("amount__avg")
+    b_13_14 = Buy.objects.filter(shope=shope).filter(date__hour__in=(13,14)).aggregate(Avg("amount")).get("amount__avg")
+    b_14_15 = Buy.objects.filter(shope=shope).filter(date__hour__in=(14,15)).aggregate(Avg("amount")).get("amount__avg")
+    b_15_16 = Buy.objects.filter(shope=shope).filter(date__hour__in=(15,16)).aggregate(Avg("amount")).get("amount__avg")
+    b_16_17 = Buy.objects.filter(shope=shope).filter(date__hour__in=(16,17)).aggregate(Avg("amount")).get("amount__avg")
+    b_17_18 = Buy.objects.filter(shope=shope).filter(date__hour__in=(17,18)).aggregate(Avg("amount")).get("amount__avg")
+    b_18_19 = Buy.objects.filter(shope=shope).filter(date__hour__in=(18,19)).aggregate(Avg("amount")).get("amount__avg")
+    b_19_20 = Buy.objects.filter(shope=shope).filter(date__hour__in=(19,20)).aggregate(Avg("amount")).get("amount__avg")
+    b_20_21 = Buy.objects.filter(shope=shope).filter(date__hour__in=(20,21)).aggregate(Avg("amount")).get("amount__avg")
+    b_21_22 = Buy.objects.filter(shope=shope).filter(date__hour__in=(21,22)).aggregate(Avg("amount")).get("amount__avg")
+    b_22_23 = Buy.objects.filter(shope=shope).filter(date__hour__in=(22,23)).aggregate(Avg("amount")).get("amount__avg")
+    b_23_00 = Buy.objects.filter(shope=shope).filter(date__hour__in=(23,0)).aggregate(Avg("amount")).get("amount__avg")
+    return b_1_2 if b_1_2 is not None else 0,b_2_3 if b_2_3 is not None else 0,\
+           b_3_4 if b_3_4 is not None else 0 ,b_4_5 if b_4_5 is not None else 0\
+        ,b_5_6 if b_1_2 is not None else 0,b_6_7 if b_6_7 is not None else 0\
+        ,b_7_8 if b_7_8 is not None else 0,b_8_9 if b_8_9 is not None else 0 ,b_9_10 if b_9_10 is not None else 0\
+        , b_10_11 if b_10_11 is not None else 0,b_11_12 if b_11_12 is not None else 0\
+        ,b_12_13 if b_12_13 is not None else 0,b_13_14 if b_13_14 is not None else 0\
+        ,b_14_15 if b_14_15 is not None else 0,b_15_16 if b_15_16 is not None else 0 \
+        ,b_16_17 if b_16_17 is not None else 0,b_17_18 if b_17_18 is not None else 0\
+        ,b_18_19 if b_18_19 is not None else 0,b_19_20 if b_19_20 is not None else 0\
+        ,b_20_21 if b_20_21 is not None else 0,b_21_22 if b_21_22 is not None else 0\
+        ,b_22_23 if b_22_23 is not None else 0,b_23_00 if b_23_00 is not None else 0
 
 def days_stat(shope):
-    lun = Buy.objects.filter(shope=shope).filter(date__week_day=0).aggregate(Avg("amount"))
-    mar = Buy.objects.filter(shope=shope).filter(date__week_day=1).aggregate(Avg("amount"))
-    mer = Buy.objects.filter(shope=shope).filter(date__week_day=2).aggregate(Avg("amount"))
-    jeudi = Buy.objects.filter(shope=shope).filter(date__week_day=3).aggregate(Avg("amount"))
-    ven = Buy.objects.filter(shope=shope).filter(date__week_day=4).aggregate(Avg("amount"))
-    sam = Buy.objects.filter(shope=shope).filter(date__week_day=5).aggregate(Avg("amount"))
-    dim = Buy.objects.filter(shope=shope).filter(date__week_day=6).aggregate(Avg("amount"))
-    return lun,mar,mer,jeudi,ven,sam,dim
+    lun = Buy.objects.filter(shope=shope).filter(date__week_day=0).aggregate(Avg("amount")).get("amount__avg")
+    mar = Buy.objects.filter(shope=shope).filter(date__week_day=1).aggregate(Avg("amount")).get("amount__avg")
+    mer = Buy.objects.filter(shope=shope).filter(date__week_day=2).aggregate(Avg("amount")).get("amount__avg")
+    jeudi = Buy.objects.filter(shope=shope).filter(date__week_day=3).aggregate(Avg("amount")).get("amount__avg")
+    ven = Buy.objects.filter(shope=shope).filter(date__week_day=4).aggregate(Avg("amount")).get("amount__avg")
+    sam = Buy.objects.filter(shope=shope).filter(date__week_day=5).aggregate(Avg("amount")).get("amount__avg")
+    dim = Buy.objects.filter(shope=shope).filter(date__week_day=6).aggregate(Avg("amount")).get("amount__avg")
+    return lun if lun is not None else 0,mar if mar is not None else 0,mer if mer is not None else 0,jeudi if jeudi is not None else 0\
+        ,ven if ven is not None else 0,sam if sam is not None else 0,dim if dim is not None else 0
 
 
 
@@ -146,8 +160,8 @@ def days_stat(shope):
 def total_stat(shope):
     nb_product = Product.objects.filter(shope=shope).count()
     nb_cart = Cart.objects.filter(shope=shope).count()
-    cart_m = Cart.objects.filter(shope=shope).filter(date__month=timezone.now().date().month).aggregate(Sum("total"))
-    return nb_product,nb_cart,cart_m
+    cart_m = Cart.objects.filter(shope=shope).filter(date__month=timezone.now().date().month).aggregate(Sum("total")).get("total__sum")
+    return nb_product,nb_cart,cart_m if cart_m is not None else 0
 
 
 def to_day_stat(shope):

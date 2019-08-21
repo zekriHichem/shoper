@@ -20,48 +20,48 @@
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-violet"><i class="icon-user"></i></div>
-                    <div class="title"><span>New<br>Clients</span>
+                    <div class="title"><span>New<br>Cart</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>25</strong></div>
+                    <div class="number"><strong>{{ nb_selle_to_day }}</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-red"><i class="icon-padnote"></i></div>
-                    <div class="title"><span>Work<br>Orders</span>
+                    <div class="title"><span>Products <br>sold</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>70</strong></div>
+                    <div class="number"><strong>{{ nb_p_b_t }}</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-green"><i class="icon-bill"></i></div>
-                    <div class="title"><span>New<br>Invoices</span>
+                    <div class="icon bg-green"><i class="fa fa-money"></i></div>
+                    <div class="title"><span>New<br>Incomes</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>40</strong></div>
+                    <div class="number"><strong>{{ money_total }} DA</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
-                    <div class="icon bg-orange"><i class="icon-check"></i></div>
-                    <div class="title"><span>Open<br>Cases</span>
+                    <div class="icon bg-orange"><i class="fa fa-star"></i></div>
+                    <div class="title"><span>Best<br>Product</span>
                       <div class="progress">
                         <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>50</strong></div>
+                    <div class="number"><strong>{{ product_day.title}}</strong></div>
                   </div>
                 </div>
               </div>
@@ -76,15 +76,15 @@
                     <h3>Total</h3>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
-                    <div class="text"><strong>234</strong><br><small>Applications</small></div>
+                    <div class="text"><strong>{{ nb_product }}</strong><br><small>Products</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
-                    <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                    <div class="text"><strong>152</strong><br><small>Interviews</small></div>
+                    <div class="icon bg-green"><i class="fa fa-cart-arrow-down"></i></div>
+                    <div class="text"><strong>{{ nb_cart }}</strong><br><small>Carts</small></div>
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
-                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
-                    <div class="text"><strong>147</strong><br><small>Forwards</small></div>
+                    <div class="icon bg-orange"><i class="fa fa-money"></i></div>
+                    <div class="text"><strong>{{ cart_m }} DA</strong><br><small>Financial income<br> this month</small></div>
                   </div>
                 </div>
                 <!-- Line Chart            -->
@@ -96,7 +96,7 @@
                 <div class="chart col-lg-3 col-12">
                   <!-- Bar Chart   -->
                   <div class="bar-chart has-shadow bg-white">
-                    <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
+                    <div class="title"><strong class="text-violet"></strong><br><small>Average number of sales<br> on weekdays</small></div>
                     <canvas id="barChartHome"></canvas>
                   </div>
                   <!-- Numbers-->
@@ -114,11 +114,245 @@
 
 
     <script src="{% static 'seller/vendor/jquery/jquery.min.js' %}"></script>
+           <script src="{% static 'seller/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'seller/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'seller/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'seller/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'seller/vendor/jquery-validation/jquery.validate.min.js' %}"></script>
 <script>
 
 $(".e").removeClass("active");
 $("#home_nav").addClass("active");
 </script>
 
+    <script>
+
+    $(document).ready(function () {
+
+    'use strict';
+
+    // ------------------------------------------------------- //
+    // Line Chart
+    // ------------------------------------------------------ //
+    var legendState = true;
+    if ($(window).outerWidth() < 576) {
+        legendState = false;
+    }
+
+    var LINECHART = $('#lineCahrt');
+    var myLineChart = new Chart(LINECHART, {
+        type: 'line',
+        options: {
+            scales: {
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            },
+            legend: {
+                display: legendState
+            }
+        },
+        data: {
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17","18","19","20","21","22","23","00"],
+            datasets: [
+                {
+                    label: "Average number of sales per hour",
+                    fill: true,
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: "#54e69d",
+                    pointHoverBackgroundColor: "#44c384",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    borderWidth: 1,
+                    pointBorderColor: "#44c384",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBorderColor: "#fff",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [ {{b_1_2}},{{b_2_3}},{{ b_3_4}} ,{{b_4_5}} ,{{b_5_6}} ,{{b_6_7}} ,{{b_7_8}} ,{{b_8_9}} ,{{b_9_10}}
+                        ,{{b_10_11}},{{b_11_12}},{{b_12_13}}, {{b_13_14}},{{b_14_15}},{{b_15_16}},{{b_16_17}},{{b_17_18}}
+                        ,{{b_18_19}},{{b_19_20}},{{b_20_21}},{{b_21_22}},{{b_22_23}},{{b_23_00}} ],
+                    spanGaps: false
+                }
+            ]
+        }
+    });
+
+
+
+    // ------------------------------------------------------- //
+    // Line Chart 1
+    // ------------------------------------------------------ //
+    var LINECHART1 = $('#lineChart1');
+    var myLineChart = new Chart(LINECHART1, {
+        type: 'line',
+        options: {
+            scales: {
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        max: 40,
+                        min: 0,
+                        stepSize: 0.5
+                    },
+                    display: false,
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            }
+        },
+        data: {
+            labels: ["A", "B", "C", "D", "E", "F", "G"],
+            datasets: [
+                {
+                    label: "Total Overdue",
+                    fill: true,
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: '#6ccef0',
+                    pointBorderColor: '#59c2e6',
+                    pointHoverBackgroundColor: '#59c2e6',
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    borderWidth: 3,
+                    pointBackgroundColor: "#59c2e6",
+                    pointBorderWidth: 0,
+                    pointHoverRadius: 4,
+                    pointHoverBorderColor: "#fff",
+                    pointHoverBorderWidth: 0,
+                    pointRadius: 4,
+                    pointHitRadius: 0,
+                    data: [20, 28, 30, 22, 24, 10, 7],
+                    spanGaps: false
+                }
+            ]
+        }
+    });
+
+
+
+    // ------------------------------------------------------- //
+    // Pie Chart
+    // ------------------------------------------------------ //
+    var PIECHART = $('#pieChart');
+    var myPieChart = new Chart(PIECHART, {
+        type: 'doughnut',
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: false
+            }
+        },
+        data: {
+            labels: [
+                "First",
+                "Second",
+                "Third",
+                "Fourth"
+            ],
+            datasets: [
+                {
+                    data: [300, 50, 100, 60],
+                    borderWidth: [0, 0, 0, 0],
+                    backgroundColor: [
+                        '#44b2d7',
+                        "#59c2e6",
+                        "#71d1f2",
+                        "#96e5ff"
+                    ],
+                    hoverBackgroundColor: [
+                        '#44b2d7',
+                        "#59c2e6",
+                        "#71d1f2",
+                        "#96e5ff"
+                    ]
+                }]
+        }
+    });
+
+
+    // ------------------------------------------------------- //
+    // Bar Chart
+    // ------------------------------------------------------ //
+    var BARCHARTHOME = $('#barChartHome');
+    var barChartHome = new Chart(BARCHARTHOME, {
+        type: 'bar',
+        options:
+        {
+            scales:
+            {
+                xAxes: [{
+                    display: false
+                }],
+                yAxes: [{
+                    display: false
+                }],
+            },
+            legend: {
+                display: false
+            }
+        },
+        data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [
+                {
+                    label: "Data Set 1",
+                    backgroundColor: [
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)'
+                    ],
+                    borderColor: [
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)',
+                        'rgb(121, 106, 238)'
+
+                    ],
+                    borderWidth: 1,
+                    data: [{{ dim }}, {{ lun }}, {{ mar }}, {{ mer }}, {{ jeudi }}, {{ ven }}, {{ sam }}]
+                }
+            ]
+        }
+    });
+
+});
+
+
+
+    </script>
 
    {% endblock %}
