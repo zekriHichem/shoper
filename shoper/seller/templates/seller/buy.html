@@ -121,8 +121,10 @@
                               <th scope="row">{{ cart.id }}</th>
                               <td>{{ cart.date }}</td>
                               <td>{{ cart.total }}</td>
-                              <td><a href="#">facture</a> </td>
+                              <td><a href="{% url 'bill' cart.id %}">facture</a> </td>
                             </tr>
+
+
                           {% endfor %}
 
                           </tbody>
@@ -134,7 +136,17 @@
 
 </div>
 </div>
+       <div id="fac" style="display: none"></div>
     <script src="{% static 'seller/vendor/jquery/jquery.min.js' %}"></script>
+           <script src="{% static 'seller/js/jspdf.min.js' %}"></script>
+                  <script src="{% static 'seller/js/jspdf.plugin.autotable.min.js' %}"></script>
+           <script src="{% static 'seller/js/tableHTMLExport.js' %}"></script>
+
+<script>
+
+
+</script>
+
 
 <script>
     function onSearch() {

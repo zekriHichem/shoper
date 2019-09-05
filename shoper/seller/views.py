@@ -325,7 +325,28 @@ def buy(request):
     products = Product.objects.filter(shope=shope)
     carts = Cart.objects.filter(shope=shope).order_by("date").reverse()
     return render(request,"seller/buy.html",locals())
+@login_required()
+def bill(request,id_cart):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    cart = Cart.objects.get(pk=id_cart)
+    buyss = cart.buys.all()
+    print(buyss.count())
+    return render(request,"seller/bill.html",locals())
+@login_required()
+def contact(request):
+    user = request.user
+    shope = Shope.objects.get(user=user)
+    contacts = Contact.objects.filter(shope=shope).reverse()
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        phone = request.POST["phone"]
+        Contact.objects.create(shope=shope,name=name,email=email,phone=phone)
+        return render(request,"seller/contacts.html",locals())
 
+
+    return render(request,"seller/contacts.html",locals())
 # end ---------------------------------------------------------------------------------------------------------------------
 # setting views -----------------------------------------------------------------------------------------------------------
 

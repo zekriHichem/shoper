@@ -15,7 +15,6 @@
 				<h3 class="heading">Sign IN Your User Account</h3>
                 {% if form.errors %}
                     <p style="color:red;">{{ form.errors }}</p>
-
                 {% endif %}
 			</div>
 			<form class="form-register" action="{% url 'login_page' %}" method="post">

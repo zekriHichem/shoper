@@ -14,6 +14,9 @@ urlpatterns = [
     path('addP/', views.addProduct, name="addProduct"),
     path('singleP/<int:id>', views.signleProduct, name="signleProduct"),
     path('buy/', views.buy, name="buy"),
+    path('buy/<int:id_cart>', views.bill, name="bill"),
+    path('contact/', views.contact, name="contact"),
+
     path('recive_buy/', views.recive_buy, name="recive_buy"),
     path('recive_cart/', views.recive_cart, name="recive_cart"),
 

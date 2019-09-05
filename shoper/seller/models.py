@@ -13,7 +13,7 @@ WILLAYA = (("1","Adrar"),("2","Chelf"),("3","Laghouat"),("4","Oum El Bouaghi"),(
            ("34","Bordj Bou Arreridj",),("35","Boumerdès",),("36","El Tarf",),("37","Tindouf",), ("38","Tissemsilt", ),
            ("39","El Oued",),("40","Khenchela",),("41","Souk Ahras",),("42","Tipaza",), ("43","Mila",),
            ("44","Aïn Defla",),("45","Naâma",),("46","Aïn Témouchent",),("47","Ghardaïa",),("48","Relizane",))
-
+FUNCTIONS = (("1","provider"),("2","Doctor"),("3","police"),("4","firefighter"),("5","staff"))
 class Shope(models.Model):
     user = models.OneToOneField(User,on_delete = models.CASCADE,unique=True,null=True)
     date_creation = models.DateTimeField(null=True,blank=True)
@@ -37,11 +37,24 @@ class Product(models.Model):
     add_field = models.TextField()
     is_in_reduction =models.BooleanField(default=False)
 
+    @property
+    def get_price(self):
+        if self.is_in_reduction :
+            return self.price_reduction
+        else:
+            return self.price
+
 class Buy(models.Model):
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     amount = models.IntegerField()
     date = models.DateTimeField()
+    @property
+    def total (self):
+        if self.product.is_in_reduction :
+            return self.product.price_reduction * self.amount
+        else:
+            return self.product.price * self.amount
 
 class Cart (models.Model) :
     shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
@@ -49,3 +62,9 @@ class Cart (models.Model) :
     date = models.DateTimeField(null=True,blank=True)
     total = models.FloatField(null=True,blank=True)
 
+class Contact(models.Model):
+    shope = models.ForeignKey(Shope,on_delete=models.CASCADE)
+    name = models.CharField(max_length=25)
+    phone = models.CharField(max_length=25)
+    email = models.EmailField(null=True,blank=True)
+   # func = models.CharField(max_length=50,choices=FUNCTIONS)
