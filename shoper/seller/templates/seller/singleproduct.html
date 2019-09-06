@@ -33,7 +33,13 @@
                   </div>
                   <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-blue"><i class="fa fa-money"></i></div>
-                    <div class="text"><strong>{{ product.price }}</strong><br><small>DA</small></div>
+                      {% if product.is_in_reduction %}
+                          <div class="text"><s><strong>{{ product.price }}</strong><br><small>DA</small></s></div>
+
+                      {% else %}
+                                                    <div class="text"><strong>{{ product.price }}</strong><br><small>DA</small></div>
+
+                      {% endif %}
                   </div>
                      <div class="statistic d-flex align-items-center bg-white has-shadow">
                     <div class="icon bg-orange"><i class="fa fa-money"></i></div>

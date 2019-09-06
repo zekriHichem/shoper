@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d443f91-032e-4b41-a3a4-62eb0ba191c2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/shoper/seller/static/seller/js/jspdf.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoper/seller/static/seller/js/jspdf.plugin.autotable.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoper/seller/static/seller/js/tableHTMLExport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/bill.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoper/seller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/static/registration/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/static/registration/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/buy.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/buy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shoper/seller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shoper/seller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shoper/seller/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoper/seller/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="344" column="43" selection-start-line="344" selection-start-column="43" selection-end-line="344" selection-end-column="43" />
+            <state relative-caret-position="1904">
+              <caret line="371" column="59" selection-start-line="371" selection-start-column="59" selection-end-line="371" selection-end-column="59" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#809#1214#0" />
@@ -62,20 +60,22 @@
                 <element signature="e#12728#12860#0" />
                 <element signature="e#12903#13318#0" />
                 <element signature="e#13350#13856#0" />
+                <element signature="e#13911#14150#0" />
+                <element signature="e#14200#14408#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bill.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/bill.html">
+      <file leaf-file-name="product.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+            <state relative-caret-position="122">
+              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
               <folding>
-                <element signature="e#115#159#0#HTML" expanded="true" />
-                <element signature="e#2062#2100#0#HTML" expanded="true" />
-                <element signature="e#2369#2391#0#HTML" expanded="true" />
+                <element signature="n#if#0;n#!!top" />
+                <element signature="e#3423#3915#0#HTML" />
+                <element signature="e#3916#4004#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -84,7 +84,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoper/seller/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="1139">
               <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
@@ -105,13 +105,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contacts.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contacts.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+            <state relative-caret-position="680">
+              <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
               <folding>
-                <element signature="e#335#2470#0#HTML" />
                 <element signature="e#335#492#0#HTML" />
               </folding>
             </state>
@@ -121,8 +120,11 @@
       <file leaf-file-name="contact us.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contact us.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="1275">
               <caret line="75" column="6" selection-start-line="75" selection-start-column="6" selection-end-line="79" selection-end-column="9" />
+              <folding>
+                <element signature="e#84#3395#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,24 +144,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buy.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/buy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4760">
-              <caret line="280" selection-start-line="280" selection-end-line="284" selection-end-column="9" />
-              <folding>
-                <element signature="e#5971#5992#0#HTML" expanded="true" />
-                <element signature="e#6029#6521#0#HTML" />
-                <element signature="e#6523#7125#0#HTML" />
-                <element signature="e#7127#7691#0#HTML" />
-                <element signature="e#7693#8746#0#HTML" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -198,13 +184,10 @@
         <option value="$PROJECT_DIR$/shoper/seller/forms.py" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/registration/signup.html" />
         <option value="$PROJECT_DIR$/shoper/seller/static/seller/js/front.js" />
-        <option value="$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css" />
         <option value="$PROJECT_DIR$/shoper/seller/admin.py" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/add.html" />
         <option value="$PROJECT_DIR$/shoper/seller/static/seller/js/charts-home.js" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/home.html" />
-        <option value="$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html" />
-        <option value="$PROJECT_DIR$/shoper/seller/templates/seller/product.html" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/contact us.html" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/profile.html" />
         <option value="$PROJECT_DIR$/shoper/shoper/settings.py" />
@@ -214,9 +197,13 @@
         <option value="$PROJECT_DIR$/shoper/seller/urls.py" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/test.html" />
         <option value="$PROJECT_DIR$/shoper/seller/models.py" />
-        <option value="$PROJECT_DIR$/shoper/seller/views.py" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/base.html" />
         <option value="$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html" />
+        <option value="$PROJECT_DIR$/shoper/seller/views.py" />
+        <option value="$PROJECT_DIR$/shoper/seller/static/registration/css/style.css" />
+        <option value="$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css" />
+        <option value="$PROJECT_DIR$/shoper/seller/templates/seller/product.html" />
+        <option value="$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html" />
       </list>
     </option>
   </component>
@@ -226,7 +213,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="696" />
     <option name="width" value="595" />
     <option name="height" value="728" />
@@ -268,6 +255,30 @@
               <item name="shoper" type="462c0819:PsiDirectoryNode" />
               <item name="shoper" type="462c0819:PsiDirectoryNode" />
               <item name="seller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="shoper" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="seller" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shoper" type="b2602c69:ProjectViewProjectNode" />
@@ -406,23 +417,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36437908" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32843137" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31316188" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36437908" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31862745" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13161875" />
       <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -434,24 +444,24 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32843137" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.1748366" />
+      <window_info anchor="bottom" id="Python Console" order="5" />
       <window_info anchor="bottom" id="Find" order="7" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="right" id="SciView" order="1" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Python Console" order="5" />
+      <window_info id="Favorites" order="0" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,33 +476,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/test.html">
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        <state relative-caret-position="1292">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#809#1214#0" />
-            <element signature="e#1259#2725#0" />
-            <element signature="e#2798#3164#0" />
-            <element signature="e#3389#3893#0" />
-            <element signature="e#3921#7622#0" />
-            <element signature="e#7650#8659#0" />
-            <element signature="e#8691#9004#0" />
-            <element signature="e#9035#10251#0" />
-            <element signature="e#10318#10487#0" />
-            <element signature="e#10563#11712#0" />
-            <element signature="e#11778#12675#0" />
-            <element signature="e#12728#12860#0" />
-            <element signature="e#12903#13318#0" />
-            <element signature="e#13350#13856#0" />
+            <element signature="n#if#0;n#!!top" />
+            <element signature="e#3423#3915#0#HTML" />
+            <element signature="e#3916#4004#0#HTML" />
           </folding>
         </state>
       </provider>
@@ -538,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4607">
           <caret line="271" column="32" lean-forward="true" selection-start-line="271" selection-start-column="32" selection-end-line="271" selection-end-column="32" />
-          <folding>
-            <element signature="e#5971#5992#0#HTML" expanded="true" />
-            <element signature="e#6029#6521#0#HTML" />
-            <element signature="e#6523#7125#0#HTML" />
-            <element signature="e#7127#7691#0#HTML" />
-            <element signature="e#7693#8746#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -566,9 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
           <caret line="114" column="17" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="114" selection-end-column="17" />
-          <folding>
-            <element signature="e#344#4389#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -604,9 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -621,9 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="185" column="70" selection-start-line="185" selection-start-column="70" selection-end-line="185" selection-end-column="70" />
-          <folding>
-            <element signature="e#7612#7633#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -631,9 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -705,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="52" column="60" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shoper/seller/static/registration/vendor/bootrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -733,40 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="48" column="79" selection-start-line="48" selection-start-column="79" selection-end-line="48" selection-end-column="79" />
-          <folding>
-            <element signature="e#410#1054#0#HTML" />
-            <element signature="e#1676#1695#0#HTML" expanded="true" />
-            <element signature="e#2245#2277#0#HTML" expanded="true" />
-            <element signature="e#2624#2644#0#HTML" expanded="true" />
-            <element signature="e#6720#7212#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="146" column="8" lean-forward="true" selection-start-line="146" selection-start-column="8" selection-end-line="148" selection-end-column="10" />
-          <folding>
-            <element signature="e#2581#2602#0#HTML" expanded="true" />
-            <element signature="e#5376#5397#0#HTML" expanded="true" />
-            <element signature="e#6168#6201#0#HTML" expanded="true" />
-            <element signature="e#6372#6404#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
           <caret line="114" column="17" selection-start-line="1" selection-start-column="3" selection-end-line="114" selection-end-column="17" />
-          <folding>
-            <element signature="e#344#4389#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,13 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4760">
           <caret line="280" selection-start-line="280" selection-end-line="284" selection-end-column="9" />
-          <folding>
-            <element signature="e#5971#5992#0#HTML" expanded="true" />
-            <element signature="e#6029#6521#0#HTML" />
-            <element signature="e#6523#7125#0#HTML" />
-            <element signature="e#7127#7691#0#HTML" />
-            <element signature="e#7693#8746#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -816,11 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
-          <folding>
-            <element signature="e#115#159#0#HTML" expanded="true" />
-            <element signature="e#2062#2100#0#HTML" expanded="true" />
-            <element signature="e#2369#2391#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,16 +767,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/test.html">
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/test.html" />
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contact us.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="1275">
+          <caret line="75" column="6" selection-start-line="75" selection-start-column="6" selection-end-line="79" selection-end-column="9" />
+          <folding>
+            <element signature="e#84#3395#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding>
+            <element signature="e#335#492#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shoper/seller/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="1139">
           <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -861,10 +798,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shoper/seller/static/registration/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="585" selection-start-line="585" selection-end-line="585" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shoper/seller/static/seller/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shoper/seller/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="344" column="43" selection-start-line="344" selection-start-column="43" selection-end-line="344" selection-end-column="43" />
+        <state relative-caret-position="1904">
+          <caret line="371" column="59" selection-start-line="371" selection-start-column="59" selection-end-line="371" selection-end-column="59" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#809#1214#0" />
@@ -881,31 +839,27 @@
             <element signature="e#12728#12860#0" />
             <element signature="e#12903#13318#0" />
             <element signature="e#13350#13856#0" />
+            <element signature="e#13911#14150#0" />
+            <element signature="e#14200#14408#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contact us.html">
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/singleproduct.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="75" column="6" selection-start-line="75" selection-start-column="6" selection-end-line="79" selection-end-column="9" />
+        <state relative-caret-position="264">
+          <caret line="39" column="127" lean-forward="true" selection-start-line="39" selection-start-column="127" selection-end-line="39" selection-end-column="127" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/base.html">
+    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shoper/seller/templates/seller/contacts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+        <state relative-caret-position="122">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
           <folding>
-            <element signature="e#335#2470#0#HTML" />
-            <element signature="e#335#492#0#HTML" />
+            <element signature="n#if#0;n#!!top" />
+            <element signature="e#3423#3915#0#HTML" />
+            <element signature="e#3916#4004#0#HTML" />
           </folding>
         </state>
       </provider>
